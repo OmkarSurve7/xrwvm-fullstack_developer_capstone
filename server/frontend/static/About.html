@@ -1,21 +1,86 @@
-<html>
+```html
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Link the style sheet here -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Dealerships</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+
+  <!-- Project stylesheet -->
+  <link rel="stylesheet" href="/static/style.css">
+
+  <style>
+    .about-header {
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    .team-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .team-card {
+      width: 30%;
+      min-width: 220px;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .team-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .team-card .card-body {
+      padding: 20px;
+    }
+
+    .team-card .title {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .team-card {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light"
+       style="background-color: darkturquoise; min-height: 1in;">
     <div class="container-fluid">
       <h2 style="padding-right: 5%;">Dealerships</h2>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarText"
+              aria-controls="navbarText"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
+            <a class="nav-link" style="font-size: larger;" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about">About Us</a>
+            <a class="nav-link active" style="font-size: larger;"
+               aria-current="page" href="/about">About Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
@@ -24,45 +89,59 @@
       </div>
     </div>
   </nav>
-  
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
-      <!-- Insert header information here -->
-      </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person1</p>
-          <p>Person1 Title</p>
-          <p class="card-text">Some text that explains the person1 in about 2 short sentences</p>
-          <p>person1@example.com</p>
-        </div>
-      </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person2</p>
-          <p>Person2 Title</p>
-          <p class="card-text">Some text that explains the person2 in about 2 short sentences</p>
-          <p>person2@example.com</p>
-        </div>
-      </div>
+  <main class="card" style="width: 90%; margin: 4% auto;">
+    <header class="about-header">
+      <h1>About Our Dealership</h1>
+      <p>
+        We are committed to helping customers find the right vehicle
+        with reliable service, quality choices, and a smooth buying experience.
+      </p>
+    </header>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
+    <section class="team-container">
+      <article class="card team-card">
+        <img src="/static/person.png" alt="Dealership manager">
         <div class="card-body">
-          <p class="title">Person3</p>
-          <p>Person3 Title</p>
-          <p class="card-text">Some text that explains the person3 in about 2 short sentences</p>
-          <p>person3@example.com</p>
+          <p class="title">Omkar Surve</p>
+          <p>Project Team Member</p>
+          <p class="card-text">
+            Contributes to the development and improvement of the dealership
+            portal, focusing on a clear and user-friendly experience.
+          </p>
+          <p>omkar@example.com</p>
         </div>
-      </div>
-    </div>
-    </div>
-    </div>
-    
-</div>
+      </article>
 
+      <article class="card team-card">
+        <img src="/static/person.png" alt="Sales team member">
+        <div class="card-body">
+          <p class="title">Team Member 2</p>
+          <p>Sales Representative</p>
+          <p class="card-text">
+            Helps customers explore available vehicles and understand
+            their options to make informed decisions.
+          </p>
+          <p>sales@example.com</p>
+        </div>
+      </article>
+
+      <article class="card team-card">
+        <img src="/static/person.png" alt="Customer support team member">
+        <div class="card-body">
+          <p class="title">Team Member 3</p>
+          <p>Customer Support</p>
+          <p class="card-text">
+            Supports customers with questions and helps make their
+            dealership experience simple and convenient.
+          </p>
+          <p>support@example.com</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/static/bootstrap.min.js"></script>
+</body>
 </html>
+```
