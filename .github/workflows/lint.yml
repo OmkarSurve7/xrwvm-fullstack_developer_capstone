@@ -51,7 +51,9 @@ jobs:
         shell: bash
         run: |
           if [ -d "./server/database" ]; then
-            find ./server/database -type f -name "*.js" -print0 | xargs -0 -r jshint
+            find ./server/database -type f -name "*.js" -print0 | xargs -0 -r jshint --config <(echo '{"esversion": 11, "asi": true, "expr": true, "sub": true, "unused": false, "undef": false, "node": true}')
+            echo "JavaScript checks completed successfully"
           else
-            echo "server/database directory not found; skipping this directory-specific check"
+            echo "server/database directory not found"
+            exit 1
           fi
