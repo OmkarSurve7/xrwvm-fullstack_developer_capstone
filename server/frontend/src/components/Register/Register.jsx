@@ -2,69 +2,172 @@
 import React, { useState } from "react";
 import "./Register.css";
 
-const Register = () => {
-  const [formData, setFormData] = useState({
-    userName: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-  });
+import user_icon from "../assets/person.png";
+import email_icon from "../assets/email.png";
+import password_icon from "../assets/password.png";
+import close_icon from "../assets/close.png";
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+const Register = () => {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  const gohome = () => {
+    window.location.href = window.location.origin;
   };
 
-  const handleSubmit = (e) => {
+  const register = async (e) => {
     e.preventDefault();
-    console.log("Registration details submitted");
+
+    try {
+      const register_url = window.location.origin + "/djangoapp/register";
+
+      const res = await fetch(register_url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userName: userName,
+          password: password,
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+        }),
+      });
+
+      const json = await res.json();
+
+      if (json.status) {
+        sessionStorage.setItem("username", json.userName);
+        window.location.href = window.location.origin;
+      } else if (json.error === "Already Registered") {
+        alert("The user with same username is already registered");
+        gohome();
+      } else {
+        alert(json.error || "Registration failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      alert("Unable to connect to the registration server.");
+    }
   };
 
   return (
-    <div className="register-container">
-      <h2>Sign-up</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="userName"
-          placeholder="Username"
-          value={formData.userName}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="firstName"
-          placeholder="First Name"
-          value={formData.firstName}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="lastName"
-          placeholder="Last Name"
-          value={formData.lastName}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Register</button>
+    <div className="register_container" style={{ width: "50%" }}>
+      <div
+        className="header"
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <span className="text" style={{ flexGrow: "1" }}>
+          SignUp
+        </span>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifySelf: "end",
+            alignSelf: "start",
+          }}
+        >
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              gohome();
+            }}
+            style={{
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+            }}
+          >
+            <img
+              style={{ width: "1cm" }}
+              src={close_icon}
+              alt="Close"
+            />
+          </a>
+        </div>
+      </div>
+
+      <form onSubmit={register}>
+        <div className="inputs">
+          <div className="input">
+            <img src={user_icon} className="img_icon" alt="Username" />
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              className="input_field"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="input">
+            <img src={user_icon} className="img_icon" alt="First Name" />
+            <input
+              type="text"
+              name="first_name"
+              placeholder="First Name"
+              className="input_field"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="input">
+            <img src={user_icon} className="img_icon" alt="Last Name" />
+            <input
+              type="text"
+              name="last_name"
+              placeholder="Last Name"
+              className="input_field"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="input">
+            <img src={email_icon} className="img_icon" alt="Email" />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              className="input_field"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="input">
+            <img src={password_icon} className="img_icon" alt="Password" />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              className="input_field"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="submit_panel">
+          <input className="submit" type="submit" value="Register" />
+        </div>
       </form>
     </div>
   );
