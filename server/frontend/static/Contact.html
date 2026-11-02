@@ -1,120 +1,123 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - Dealerships</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/static/bootstrap.min.css">
-  <link rel="stylesheet" href="/static/style.css">
+    <title>Contact Us - Car Dealership</title>
 
-  <style>
-    .contact-container {
-      width: 85%;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px;
-    }
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
 
-    .contact-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+    <style>
+        .contact-card {
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 20px;
+        }
 
-    .contact-info {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+        .top-image {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
 
-    .contact-card {
-      flex: 1;
-      min-width: 220px;
-      padding: 25px;
-      text-align: center;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-    }
+        .card-content {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            padding: 25px 10px;
+        }
 
-    .contact-card img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      margin-bottom: 15px;
-    }
+        .support-image {
+            width: 180px;
+            max-width: 100%;
+        }
 
-    @media (max-width: 600px) {
-      .contact-container {
-        width: 95%;
-        padding: 15px;
-      }
-    }
-  </style>
+        .divider {
+            width: 2px;
+            min-height: 250px;
+            background-color: #ddd;
+        }
+
+        .contact-details h3 {
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .contact-details p {
+            color: #555;
+        }
+
+        @media (max-width: 600px) {
+            .card-content {
+                flex-direction: column;
+            }
+
+            .divider {
+                width: 100%;
+                min-height: 2px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light"
-       style="background-color: darkturquoise; min-height: 1in;">
-    <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
 
-      <button class="navbar-toggler" type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarText"
-              aria-controls="navbarText"
-              aria-expanded="false"
-              aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">Car Dealership</a>
 
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/about">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;"
-               aria-current="page" href="/contact">Contact Us</a>
-          </li>
-        </ul>
-      </div>
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/about">About Us</a>
+                <a class="nav-link active" aria-current="page" href="/contact">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card contact-card shadow">
+
+            <img src="/static/cars.jpeg"
+                 alt="Car Dealership"
+                 class="top-image">
+
+            <div class="card-content">
+
+                <div class="left-side">
+                    <img src="/static/contactus.png"
+                         alt="Customer Support"
+                         class="support-image">
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="contact-details">
+
+                    <h3>Contact Customer Service</h3>
+                    <p>support@cardealership.com</p>
+
+                    <h3>Contact our National Advertising Team</h3>
+                    <p>advertising@cardealership.com</p>
+
+                    <h3>Contact our Public Relations Team</h3>
+                    <p>pr@cardealership.com</p>
+
+                    <h3>Contact the Dealership Office</h3>
+                    <p>+91 98765 43210</p>
+
+                    <h3>Become a Car Dealer</h3>
+                    <p>Contact us to explore dealership opportunities.</p>
+
+                </div>
+            </div>
+        </div>
     </div>
-  </nav>
 
-  <main class="card contact-container">
-    <header class="contact-header">
-      <h1>Contact Us</h1>
-      <p>We are here to help you find your perfect vehicle.</p>
-    </header>
-
-    <section class="contact-info">
-      <div class="contact-card">
-        <img src="/static/contactus.png" alt="Email and contact information">
-        <h4>Email Us</h4>
-        <p><a href="mailto:contact@example.com">contact@example.com</a></p>
-      </div>
-
-      <div class="contact-card">
-        <img src="/static/person.png" alt="Customer support">
-        <h4>Call Us</h4>
-        <p>+91 98765 43210</p>
-      </div>
-
-      <div class="contact-card">
-        <img src="/static/car_dealership.jpg" alt="Car dealership">
-        <h4>Visit Us</h4>
-        <p>Dealership Customer Service</p>
-        <p>Pune, Maharashtra, India</p>
-      </div>
-    </section>
-  </main>
-
-  <script src="/static/bootstrap.min.js"></script>
 </body>
 </html>
-```
