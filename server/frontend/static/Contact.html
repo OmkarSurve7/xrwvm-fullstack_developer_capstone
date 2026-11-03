@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Contact Us - Car Dealership</title>
+    <title>Contact Us - Best Cars Dealership</title>
 
+    <!-- Required CSS Stylesheets -->
     <link rel="stylesheet" href="/static/bootstrap.min.css">
     <link rel="stylesheet" href="/static/style.css">
 
@@ -66,22 +68,53 @@
 
 <body>
 
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="/">Car Dealership</a>
 
-            <div class="navbar-nav">
-                <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="/about">About Us</a>
-                <a class="nav-link active" aria-current="page" href="/contact">
-                    Contact Us
-                </a>
+            <a class="navbar-brand" href="/">Best Cars</a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarText"
+                    aria-controls="navbarText"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarText">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                           aria-current="page"
+                           href="/contact">
+                            Contact Us
+                        </a>
+                    </li>
+
+                </ul>
+
             </div>
         </div>
     </nav>
 
+    <!-- Contact Us Content -->
     <div class="container">
+
         <div class="card contact-card shadow">
+
+            <h1 class="text-center mb-4">Contact Us</h1>
 
             <img src="/static/cars.jpeg"
                  alt="Car Dealership"
@@ -89,6 +122,7 @@
 
             <div class="card-content">
 
+                <!-- Customer Support Image -->
                 <div class="left-side">
                     <img src="/static/contactus.png"
                          alt="Customer Support"
@@ -97,27 +131,34 @@
 
                 <div class="divider"></div>
 
+                <!-- Contact Details -->
                 <div class="contact-details">
 
                     <h3>Contact Customer Service</h3>
-                    <p>support@cardealership.com</p>
+                    <p>support@bestcars.com</p>
 
                     <h3>Contact our National Advertising Team</h3>
-                    <p>advertising@cardealership.com</p>
+                    <p>NationalSales@bestcars.com</p>
 
                     <h3>Contact our Public Relations Team</h3>
-                    <p>pr@cardealership.com</p>
+                    <p>PR@bestcars.com</p>
 
                     <h3>Contact the Dealership Office</h3>
-                    <p>+91 98765 43210</p>
+                    <p>312-611-1111</p>
 
                     <h3>Become a Car Dealer</h3>
-                    <p>Contact us to explore dealership opportunities.</p>
+                    <p>Visit growwithbestcars.com</p>
 
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="/static/bootstrap.min.js"></script>
 
 </body>
 </html>
